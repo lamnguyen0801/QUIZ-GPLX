@@ -1,0 +1,131 @@
+@import "../../assets/scss/mixin";
+@import "../../assets/scss/variable";
+
+.test {
+    width: 100%; // tránh ăn theo content
+    padding-bottom: 20px;
+
+    &__title {
+        font-size: 28px;
+    }
+
+    &__submit {
+        text-align: right;
+
+        button {
+            @include btn-default;
+            font-weight: bold;
+            background-color: $bg;
+            transition: 0.2s all;
+
+            &:hover {
+                background-color: $color-two;
+                transition: 0.2s all;
+            }
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .test {
+        .test-up-down {
+            &__display {
+                &--block { 
+                    width: 10%; // gồm 10 ô => 100%  (chia đều số ô cho 100% để ra width mỗi ô)
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .test {
+        &__title {
+            font-size: 25px;
+        }
+
+        &__submit button {
+            font-size: 15px;
+        }
+
+        .test-up-down {
+            &__display {
+                &--block {
+                    width: 12.5%; // gồm 8 ô => 100% 
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 575.98px) {
+    .test {
+        &__title {
+            font-size: 23px;
+        }
+
+        &__submit button {
+            font-size: 14px;
+        }
+
+        .test-up-down {
+            &__display {
+                &--block {
+                    width: 14%; // gồm 7 ô => 98% 
+                    a {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 424.98px) {
+    .test {
+        &__title {
+            font-size: 21px;
+        }
+
+        &__submit button {
+            font-size: 13px;
+        }
+
+        .test-up-down {
+            &__display {
+                &--block {
+                    width: 16.5%; // gồm 6 ô => 99% 
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    } 
+}
+
+@media (max-width: 319.98px) {
+    .test {
+        &__title {
+            font-size: 20px;
+        }
+
+        &__submit button {
+            font-size: 11px;
+            padding: 12px 16px;
+        }
+
+        .test-up-down {
+            &__display {
+                &--block {
+                    width: 19%; // gồm 5 ô => 95% 
+                    a {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    } 
+}

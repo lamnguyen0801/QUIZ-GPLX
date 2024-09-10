@@ -1,0 +1,42 @@
+@import "../../assets/scss/mixin";
+@import "../../assets/scss/variable";
+
+.topic-item { 
+    color: $color-one;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border: 2px solid $color-two;
+    border-radius: 8px;
+
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        width: 50px;
+        height: 50px;
+        
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    &__title {
+        font-size: 17px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+
+    &__number {
+        font-size: 18px;
+        font-weight: 600;
+        justify-content: end;
+    }
+}
+

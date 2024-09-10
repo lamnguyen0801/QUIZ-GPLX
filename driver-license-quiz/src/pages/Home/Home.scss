@@ -1,0 +1,86 @@
+@import "../../assets/scss/variable";
+
+.home-content {
+
+    &__title {
+        font-size: 28px;
+        position: relative;
+        margin-top: 40px;
+        margin-bottom: 30px;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 85%;
+            height: 2px;
+            background-color: $color-one;
+            position: absolute;
+            top: 125%;
+        }
+    }
+
+    &__desc {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .home-content {
+        &__title {
+            font-size: 25px;
+        }
+
+        &__desc {
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .home-content {
+        &__title {
+            font-size: 24px;
+        }
+
+        &__desc {
+            font-size: 15px;
+        }
+    }
+}
+
+@media (max-width: 424.98px) {
+    .home-content {
+        &__title {
+            &::after {
+                top: 110%;
+            }
+        }
+
+        &__desc {
+            font-size: 14px;
+        }
+    }
+
+    .ant-collapse>.ant-collapse-item >.ant-collapse-header {
+        padding: 7px;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 319.98px) {
+    .home-content {
+        &__title {
+            font-size: 20px;
+        }
+
+        &__desc {
+            font-size: 12px;
+        }
+    }
+
+    .ant-collapse>.ant-collapse-item >.ant-collapse-header {
+        font-size: 11px;
+    }
+}

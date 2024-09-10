@@ -1,0 +1,81 @@
+.result {
+    margin: 20px auto; // căn giữa
+}
+
+.result-header {
+
+    &__title {
+        font-size: 30px;
+        margin: 10px 0;
+    }
+
+    &__right-wrong {
+        font-size: 17px;
+        font-weight: 700;
+        white-space: nowrap; // để cả 3 đều cùng 1 hàng ko xuống dòng
+        margin-bottom: 10px;
+
+        span {
+            margin-right: 15px;
+        }
+
+        &--correct {
+            color: green;
+        }
+
+        &--incorrect {
+            color: red;
+        }
+
+        &--percent {
+            color: orange;
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .result-header {
+        &__title {
+            font-size: 28px;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .result-header {
+        &__title {
+            font-size: 25px;
+        }
+
+        &__right-wrong {
+            font-size: 15px;
+        }
+    }
+}
+
+@media (max-width: 319.98px) {
+    .result-header {
+        &__title {
+            font-size: 23px;
+        }
+
+        &__right-wrong {
+            font-size: 13px;
+
+            &--correct {
+                display: block;
+                width: 100%;
+            }
+    
+            &--incorrect {
+                display: block;
+                width: 100%;
+            }
+    
+            &--percent {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}

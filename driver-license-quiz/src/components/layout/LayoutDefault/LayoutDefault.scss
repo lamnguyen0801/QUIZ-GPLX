@@ -1,0 +1,264 @@
+@import "../../../assets/scss/mixin";
+@import "../../../assets/scss/variable";
+
+.layout-default {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    .container {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__header {
+        background-color: $bg;
+    }
+
+    &__logo {
+        width: 90px;
+        height: 90px;
+        border-radius: 6px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__menu {
+        @include list-style-none;
+        @include text-decor-none;
+
+        ul {
+            display: flex;
+            align-items: center; // căn giữa theo chiều dọc các thẻ a bên trong
+        }
+
+        li {
+            a {
+                font-size: 17px;
+                font-weight: 500;
+                padding: 18px;
+                color: $color-one;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all 0.2s ease-in-out;
+
+                span {
+                    margin-top: 5px;
+                }
+
+                &:hover {
+                    background-color: $color-two;
+                    border-radius: 7px;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+        }
+
+        &--icon {
+            font-size: 22px;
+        }
+    }
+
+    &__account {
+        display: flex;
+        align-items: center; // căn giữa theo chiều dọc các thẻ a bên trong
+        @include text-decor-none;
+
+        a {
+            color: $color-one;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 33px 15px;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: $color-two;
+                border-radius: 7px;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+    }
+
+    &__main {
+        flex: 1;
+    }
+
+    &__footer {
+        color: $color-one;
+        font-size: 17px;
+        text-align: center;
+        background-color: $bg;
+        padding: 20px 0;
+    }
+
+    &__mobi {
+        display: none;
+    }
+}
+
+.ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+    padding: 5px 8px;
+
+    &:hover {
+        background-color: $color-two;
+    }
+
+    &:last-child .ant-dropdown-menu-title-content {
+        display: flex;
+        justify-content: center;
+    }
+
+    a {
+        color: $color-one;
+        font-size: 14px;
+
+        .layout-default__menu--icon {
+            font-size: 15px;
+        }
+    }
+
+    .anticon {
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .layout-default {
+        &__logo {
+            width: 85px;
+            height: 85px;
+        }
+
+        &__menu {
+            ul li a {
+                font-size: 15px;
+                padding: 19px;
+
+                span {
+                    margin-top: 3px;
+                }
+            }
+
+            &--icon {
+                font-size: 20px;
+            }
+        }
+
+        &__account {
+            a {
+                font-size: 16.5px;
+                padding: 31.5px 15px;
+            }
+        }
+
+        &__footer {
+            font-size: 15px;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .layout-default {
+        &__logo {
+            width: 75px;
+            height: 75px;
+        }
+
+        &__menu {
+            ul li a {
+                font-size: 13px;
+                padding: 16.5px 10px;
+            }
+
+            &--icon {
+                font-size: 18px;
+            }
+        }
+
+        &__account {
+            a {
+                font-size: 14px;
+                padding: 27.5px 13px;
+            }
+        }
+
+        &__footer {
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 424.98px) {
+    .layout-default {
+        &__logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        &__menu {
+            display: none;
+        }
+
+        &__account {
+            a {
+                font-size: 11px;
+                padding: 22px 10px;
+            }
+
+            &--logout {
+                display: none;
+            }
+        }
+
+        &__mobi {
+            display: block;
+            font-size: 18px;
+            margin-left: 80%;
+        }
+    }
+
+    .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+        a {
+            font-size: 13px;
+        }
+    }
+}
+
+@media (max-width: 319.98px) {
+    .layout-default {
+        &__logo {
+            width: 45px;
+            height: 45px;
+        }
+
+        &__account {
+            a {
+                padding: 17px 9px;
+            }
+        }
+
+        &__mobi {
+            font-size: 14px;
+        }
+
+        &__footer {
+            font-size: 12px;
+        }
+    }
+
+    .ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item {
+        padding: 3px 5px;
+
+        a {
+            font-size: 11px;
+        }
+    }
+}

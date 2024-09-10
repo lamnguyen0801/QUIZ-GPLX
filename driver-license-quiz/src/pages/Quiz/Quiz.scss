@@ -1,0 +1,260 @@
+@import "../../assets/scss/mixin";
+@import "../../assets/scss/variable";
+
+.quiz {
+    position: relative;
+    width: 100%;
+}
+
+.quiz-back {
+    margin-top: 20px;
+
+    button {
+        @include btn-default;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 1px solid $bg;
+        transition: all 0.4s linear;
+
+        .anticon-arrow-left {
+            transition: transform 0.3s ease;
+        }
+
+        &:hover .anticon-arrow-left {
+            transform: translateX(-5px);
+            transition: all 0.3s;
+        }
+    }
+}
+
+.quiz-header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    &__title {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    &__check {
+        display: flex;
+        align-items: center;
+        @include checked-show-all;
+
+        .checkmark {
+            margin-right: 10px;
+        }
+    }
+}
+
+.quiz-item {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    max-width: 100%; // ăn theo container ??? vẫn bị tràn
+    width: auto;
+    min-height: 160px; // Chiều cao tối thiểu
+    height: auto; // Tự điều chỉnh chiều cao theo nội dung
+    white-space: wrap; // Ngắt dòng nếu có từ quá dài
+
+    &__question {
+        margin-bottom: 9px;
+    }
+
+    &__image {
+        width: 500px;
+        height: auto;
+        margin-bottom: 7px;
+        border-radius: 7px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__answer {
+
+        .ant-tag {
+            font-size: 15px;
+            padding: 5px 10px;
+            border: 1.5px solid $bg;
+            border-radius: 8px;
+            margin-bottom: 7px;
+            cursor: pointer;
+            white-space: wrap;
+
+            &:hover {
+                box-shadow: rgba(21, 131, 89, 0.3) 0px 4px 8px -2px, rgba(7, 82, 47, 0.2) 0px 0px 0px 1px;
+            }
+        }
+    }
+
+    &__btn {
+        @include btn-default;
+        color: $color-one;
+        background-color: $bg;
+        font-size: 15px;
+        padding: 7px 15px;
+        margin-top: 10px;
+        transition: all 0.2s;
+
+        &:hover {
+            color: $color-two;
+            background-color: $color-one;
+            opacity: 0.9;
+            transition: all 0.4s;
+        }
+    }
+
+    .animate__fadeIn {
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+}
+
+.quiz-fixed {
+    color: $color-one;
+    right: 3.5%;
+    position: fixed;
+    padding: 5px;
+    border-radius: 50%;
+
+    &:hover {
+        box-shadow: rgba(21, 131, 89, 0.3) 0px 4px 8px -2px, rgba(7, 82, 47, 0.2) 0px 0px 0px 1px;
+        transition: all 0.2s;
+    }
+
+    &--up {
+        font-size: 29px;
+        bottom: 10%;
+    }
+
+    &--reset {
+        font-size: 28px;
+        bottom: 16.5%;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .quiz-header {
+        &__title {
+            font-size: 25px;
+        }
+    }
+
+    .quiz-item {
+        font-size: 15px;
+
+        &__image {
+            width: 450px;
+        }
+
+        &__answer {
+            .ant-tag {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    .quiz-header {
+        &__title {
+            font-size: 23px;
+        }
+    }
+
+    .quiz-item {
+        &__image {
+            width: 400px;
+        }
+    }
+
+    .quiz-back button {
+        font-size: 15px;
+        padding: 9px 13px;
+    }
+}
+
+@media (max-width: 424.98px) {
+    .quiz-header {
+        &__title {
+            font-size: 21px;
+        }
+
+        &__check {
+            font-size: 15px;
+        }
+    }
+
+    .quiz-item {
+        font-size: 14px;
+
+        &__image {
+            width: 350px;
+        }
+
+        &__answer {
+            .ant-tag {
+                font-size: 14px;
+            }
+        }
+
+        &__btn {
+            font-size: 14px;
+        }
+    }
+
+    .quiz-back button {
+        font-size: 14px;
+    }
+
+    .quiz-fixed {
+        &--reset {
+            font-size: 20px;
+            bottom: 15%;
+        }
+
+        &--up {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 319.98px) {
+    .quiz-header {
+        &__title {
+            font-size: 20px;
+        }
+
+        &__check {
+            font-size: 14px;
+        }
+    }
+
+    .quiz-item {
+        font-size: 13px;
+
+        &__image {
+            width: 250px;
+        }
+
+        &__answer {
+            .ant-tag {
+                font-size: 13px;
+            }
+        }
+
+        &__btn {
+            font-size: 13px;
+        }
+    }
+
+    .quiz-back button {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}

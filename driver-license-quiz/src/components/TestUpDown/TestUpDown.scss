@@ -1,0 +1,67 @@
+@import "../../assets/scss/mixin";
+@import "../../assets/scss/variable";
+
+.test-up-down {
+    &__up {
+        margin-bottom: -15px;
+        @include up; // để include xuống dưới này tránh warning
+
+        .slide-top {
+            position: relative;
+
+            .anticon-down {
+                position: relative;
+                left: 50%;
+            }
+        }
+
+    }
+
+    &__down {
+        @include down;
+
+        .slide-bottom {
+            position: relative;
+
+            .anticon-up {
+                position: relative;
+                left: 50%;
+            }
+        }
+    }
+
+    &__display {
+        // display nằm trong hiệu ứng slide-top nên padding từ đó ra để border cx có hiệu ứng đó
+        border: 2px solid $bg;
+        border-radius: 10px;
+        margin-top: 12px;
+        padding: 20px 10px;
+        display: flex;
+        flex-wrap: wrap;
+        @include text-decor-none;
+
+        &--block {
+            display: flex; // căn giữa thẻ a bên trong block
+            align-items: center;
+            justify-content: center;
+            width: 7.1%; //(chia đều số ô cho 100% để ra width mỗi ô)
+
+            a {
+                width: 50%; // ăn theo 50% của block
+                display: inline-block; // để áp dụng padding-top và padding-bottom (inline ko áp dụng dc)
+                padding: 2px 7px;
+                margin-bottom: 5px;
+                color: $color-one;
+                font-weight: 500;
+                border: 2px solid $color-two;
+                border-radius: 7px;
+                text-align: center;
+            }
+        }
+
+        &--active {
+            background-color: $color-two;
+            border-radius: 7px;
+        }
+    }
+}
