@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "database/server.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "quiz-license-driver/package.json",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "database/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "quiz-license-driver/$1"
+      }
+    ]
+  }
+  
