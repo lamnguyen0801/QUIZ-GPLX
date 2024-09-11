@@ -1,4 +1,4 @@
-import { Form, Input, message } from "antd";
+import { Button, Form, Input, message } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import "./LoginRegister.scss";
 import { loginByEmail, loginByFullName } from "../../services/userService";
@@ -6,11 +6,13 @@ import { setCookie } from "../../helpers/cookie";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { checkLogin } from "../../actions/login";
+import { useState } from "react";
 
 function Login() {
     const navigate = useNavigate();
     const [messageApi, contextHolder] = message.useMessage();
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
 
     const rules = [
         {
@@ -20,6 +22,7 @@ function Login() {
     ]
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         let fullName, email;
         const password = e.password;
         let response = "";
@@ -42,6 +45,7 @@ function Login() {
         } else {
             messageApi.error('Sai tài khoản hoặc mật khẩu!', 4);
         }
+        setLoading(false);
     }
 
     return (
@@ -60,9 +64,9 @@ function Login() {
                         />
                     </Form.Item>
                     <Form.Item>
-                        <button type="submit" className="btn btn--one">
+                        <Button htmlType="submit" className="btn btn--one" loading={loading} size="large">
                             Đăng nhập
-                        </button>
+                        </Button>
                     </Form.Item>
                 </Form>
             </div>
