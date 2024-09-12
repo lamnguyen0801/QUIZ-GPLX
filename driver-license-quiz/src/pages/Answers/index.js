@@ -93,7 +93,7 @@ function Answers() {
     ]
 
     const data = {
-        labels: dataResult.map(item => "Bài test " + item.id),
+        labels: dataResult.map((_, index) => "Bài test " + index),
         datasets: [
             {
                 label: 'Tỉ lệ đúng (%)',
