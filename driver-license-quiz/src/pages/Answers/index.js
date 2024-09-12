@@ -49,12 +49,13 @@ function Answers() {
         fetchApi();
     }, []);
 
-    const dataSource = dataResult.map((item) => {
+    const dataSource = dataResult.map((item, index) => {
         const quantityQuestion = item.answerQuestion.length;
         const percent = item.percentCorrect;
         return (
             {
                 key: item.id,
+                stt: ++index,
                 quantityQuestion: quantityQuestion,
                 percentCorrect: `${percent}%`,
                 test: <Link to={"/result/" + item.id}>Xem chi tiết</Link>
@@ -65,9 +66,9 @@ function Answers() {
     const columns = [
         {
             title: 'STT',
-            dataIndex: 'key',
-            key: 'key',
-            sorter: (a, b) => a.key - b.key, // để ý key và key trong dataSource
+            dataIndex: 'stt',
+            key: 'stt',
+            sorter: (a, b) => a.stt - b.stt, // để ý key và key trong dataSource
             multiple: 3,
         },
         {
